@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boda de Alex y Elena | 12.09.2026</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Kalam:wght@300;400;700&display=swap" rel="stylesheet">
+    </head>
+<body>
+
+    <audio id="musicaFondo" autoplay loop> 
+        <source src="musica.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <nav id="menu-principal">
+        <div class="contenedor-menu">
+            <a href="#inicio" class="nombre-boda">A&E</a>
+            
+            <button id="controlMusica" class="control-musica">
+                <i id="iconoMusica" class="material-icons">pause</i> 
+            </button>
+            
+            <span id="contador-dias-nav" class="contador-dias-nav">Cargando...</span> 
+            <div class="enlaces-menu">
+				<a href="#ubicacion">📍 Ubicación</a>
+				<a href="#timing">⏰ Timing</a>
+				<a href="#confirmacion">💌 Confirmación, Hotel y Dietas</a>
+				<a href="#alternativas">🏡 Alternativas</a>
+				<a href="#regalo">🎁 Regalo</a> </div>
+            </div>
+        </div>
+    </nav>
+    
+    <header class="hero" id="inicio">
+    <div class="hero-overlay"></div> 
+    
+   
+    
+    <div class="contenedor-hero-flex">
+        <div class="columna-texto-portada">
+            <div class="contenido-hero">
+                
+                <p class="lema fade-in-delay-0-1">Nuestra Aventura Comienza Aquí</p>
+               
+                <h1 class="fade-in-delay-0-1">Alex & Elena</h1> 
+                
+                <p class="fecha fade-in-delay-0-3">12 de Septiembre de 2026</p>
+                <p class="lugar fade-in-delay-0-4">Villa Marconi de Die, Alicante</p>
+                
+                <a href="#confirmacion" class="boton-rsvp-hero pop-in-delay-0-5">
+                    ¡Confirma tu Asistencia!
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <section class="seccion-contador">
+        
+        <div class="contenedor-carrousel-contador">
+
+    <div class="columna-carrusel-contenedor">
+       
+        <div id="carrusel-contenedor" class="slide-in-left">
+            <div id="carrusel-slider">
+                <img class="carrusel-slide" src="foto-carrusel-1.jpg" alt="Foto Alex y Elena 1">
+                <img class="carrusel-slide" src="foto-carrusel-2.jpg" alt="Foto Alex y Elena 2">
+                <img class="carrusel-slide" src="foto-carrusel-3.jpg" alt="Foto Alex y Elena 3">
+                <img class="carrusel-slide" src="foto-carrusel-4.jpg" alt="Foto Alex y Elena 4">
+                <img class="carrusel-slide" src="foto-carrusel-5.jpg" alt="Foto Alex y Elena 5">
+                <img class="carrusel-slide" src="foto-carrusel-6.jpg" alt="Foto Alex y Elena 6">
+                <img class="carrusel-slide" src="foto-carrusel-7.jpg" alt="Foto Alex y Elena 7">
+                <img class="carrusel-slide" src="foto-carrusel-8.jpg" alt="Foto Alex y Elena 8">
+                <img class="carrusel-slide" src="foto-carrusel-9.jpg" alt="Foto Alex y Elena 9">
+                <img class="carrusel-slide" src="foto-carrusel-10.jpg" alt="Foto Alex y Elena 10">
+                <img class="carrusel-slide" src="foto-carrusel-11.jpg" alt="Foto Alex y Elena 11">
+                <img class="carrusel-slide" src="foto-carrusel-12.jpg" alt="Foto Alex y Elena 12">
+                <img class="carrusel-slide" src="foto-carrusel-13.jpg" alt="Foto Alex y Elena 13">
+                <img class="carrusel-slide" src="foto-carrusel-14.jpg" alt="Foto Alex y Elena 14">
+                <img class="carrusel-slide" src="foto-carrusel-15.jpg" alt="Foto Alex y Elena 15">
+                <img class="carrusel-slide" src="foto-carrusel-16.jpg" alt="Foto Alex y Elena 16">
+                <img class="carrusel-slide" src="foto-carrusel-17.jpg" alt="Foto Alex y Elena 17">
+                <img class="carrusel-slide" src="foto-carrusel-18.jpg" alt="Foto Alex y Elena 18">
+                <img class="carrusel-slide" src="foto-carrusel-19.jpg" alt="Foto Alex y Elena 19">
+                <img class="carrusel-slide" src="foto-carrusel-20.jpg" alt="Foto Alex y Elena 20">
+            </div>
+        </div>
+    </div>
+
+            <div class="columna-tiempo-contador">
+                <h2>Faltan...</h2>
+                <div id="contador" class="contador">
+                    <div class="caja-tiempo">
+                        <span id="dias">00</span>
+                        Días
+                    </div>
+                    <div class="caja-tiempo">
+                        <span id="horas">00</span>
+                        Horas
+                    </div>
+                    <div class="caja-tiempo">
+                        <span id="minutos">00</span>
+                        Minutos
+                    </div>
+                    <div class="caja-tiempo">
+                        <span id="segundos">00</span>
+                        Segundos
+                    </div>
+                </div>
+            </div>
+            
+        </div> </section>
+
+    <section class="historia" id="ubicacion">
+        <div class="contenedor contenedor-flex-ubicacion">
+            <div class="columna-texto">
+                <h2>¡Nos Casamos!</h2>
+                <p>Estamos muy felices de compartir con vosotros que hemos decidido dar el gran paso. Queremos celebrar nuestro amor rodeados de nuestra gente favorita en un entorno mágico.</p>
+                <p>Hemos elegido <b>**Villa Marconi de Die**</b>, un lugar con encanto en Alicante, para vivir juntos un día inolvidable donde todo ocurrirá en el mismo lugar.</p>
+            </div>
+            
+            <div class="columna-mapa">
+                <div class="tarjeta-mapa-google-compacta">
+                    <h3>Ubicación</h3>
+                    <p class="nombre-ubicacion"><b>Villa Marconi de Die</b></p>
+                    
+                    <div class="contenedor-mapa-compacto">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3127.7967071450994!2d-0.4567350228346102!3d38.376824077250305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd62375eccb34061%3A0x5b05ad2fcf77c494!2sVilla%20Marconi%20de%20Die%20-%20Finca%20para%20bodas%20y%20eventos%20en%20Alicante!5e0!3m2!1ses!2ses!4v1763567956305!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    
+                    <a href="https://maps.app.goo.gl/ucjj2xjWcXWUzejo8" target="_blank" class="boton-mapa">Abrir en Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+<section class="cronograma" id="timing">
+        
+        <div class="contenedor cronograma-contenido-caja"> 
+            <h2>El Gran Día</h2>
+            <p class="subtitulo-grande">Todo el evento tendrá lugar en la misma finca</p>
+            
+            <div class="timeline">
+                <div class="timeline-item izquierdo">
+                    <div class="timeline-icono">
+                        <img src="1.png" alt="Icono Recepción">
+                    </div>
+                    <div class="timeline-contenido">
+                        <h3>12:30 h - Recepción</h3>
+                        <p>Cotillead y haced las primeras fotos decentes del día.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item derecho">
+                    <div class="timeline-icono">
+                        <img src="2.png" alt="Icono Novio">
+                    </div>
+                    <div class="timeline-contenido">
+                        <h3>13:00 h - Entrada del novio</h3>
+                        <p>Por favor, fingid sorpresa aunque ya sepáis cómo viene vestido.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item izquierdo">
+                    <div class="timeline-icono">
+                        <img src="3.png" alt="Icono Novia">
+                    </div>
+                    <div class="timeline-contenido">
+                        <h3>13:10 h - Entrada de la novia</h3>
+                        <p>Respirad hondo. Aquí empieza lo bonito de verdad.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item derecho">
+                    <div class="timeline-icono">
+                        <img src="4.png" alt="Icono Cóctel">
+                    </div>
+                    <div class="timeline-contenido">
+                        <h3>14:00 h - Comienzo del cóctel</h3>
+                        <p>El objetivo es sencillo: una mano con copa, la otra con comida.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item izquierdo">
+                    <div class="timeline-icono">
+                        <img src="5.png" alt="Icono Banquete">
+                    </div>
+                    <div class="timeline-contenido">
+                        <h3>15:45 h - El Banquete</h3>
+                        <p>Si alguien llega con hambre, no lo juzgamos. Lo admiramos.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item derecho">
+                    <div class="timeline-icono">
+                        <img src="4.png" alt="Icono Fiesta">
+                    </div>
+                    <div class="timeline-contenido">
+                        <h3>18:30 h - Barra Libre</h3>
+                        <p>Si las coreografías no salen perfectas, echad la culpa a las copas.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="rsvp" id="confirmacion">
+    <div class="deco-arbol lateral-izq"></div>
+
+    <div class="contenedor caja-rsvp">
+        <h2>Confirmación</h2>
+        <p class="texto-destacado">Para nosotros es muy importante saber si podremos contar contigo.</p>
+        
+        <div class="contenedor-columnas">
+            
+            <div class="columna-confirmacion">
+                <h3>Confirmar Asistencia</h3>
+                <p class="subtexto-confirmacion">Contacta con Alex o Elena por WhatsApp antes del <strong><b>**01/07/2026**</b></strong>.</p>
+                
+                <div class="botones-whatsapp">
+                    <a href="https://wa.me/34637365893?text=Hola%20Alex%2C%20confirmo%20mi%20asistencia%20a%20vuestra%20boda.%20" target="_blank" class="boton-wa boton-alex">
+                        <img class="icono-wa" src="icon.png" alt="Icono de WhatsApp">
+                        Confirmarle a Alex
+                    </a>
+                    
+                    <a href="https://wa.me/34658263690?text=Hola%20Elena%2C%20confirmo%20mi%20asistencia%20a%20vuestra%20boda.%20" target="_blank" class="boton-wa boton-elena">
+                        <img class="icono-wa" src="icon.png" alt="Icono de WhatsApp">
+                        Confirmarle a Elena
+                    </a>
+                </div>
+            </div>
+            
+            <div class="columna-alojamiento">
+                <h3>Alojamiento 🏨</h3>
+                <p class="texto-simple">Hemos acordado un precio especial en el **Hotel Daniya** (a solo 1 km de la boda). Marca tu opción en el formulario.</p>
+                
+                <a href="#alternativas" class="flecha-recomendaciones">
+                    Ver otras recomendaciones abajo ⬇️
+                </a>
+                
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSd97xqEfHkcpPimqIj0qKPXPaq9TnimydEpHiZ4w29dk-wXwg/viewform" target="_blank" class="boton-hotel">
+                    Rellenar Formulario de Alojamiento
+                </a>
+            </div>
+
+        </div> <div class="seccion-intolerancias">
+            <h3>🍽️ Intolerancias y Dietas Especiales</h3>
+            <p class="texto-simple">Queremos que todos disfrutéis del banquete sin preocupaciones.</p>
+            <p>Si eres celíaco, vegano, tienes alguna alergia o restricción alimentaria, por favor avísanos rellenando este breve formulario.</p>
+            
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdzeI97qRwyc6s4jXmBgEJC_B0PFQDu9p-MvXUornaBlRbONw/viewform?usp=publish-editor" target="_blank" class="boton-intolerancias">
+                <i class="material-icons" style="vertical-align: middle; margin-right: 5px;">🥗</i>
+                Reportar mis Intolerancias y Dietas Especiales
+            </a>
+        </div>
+        
+        <p class="texto-peque">¡Os esperamos!</p>
+    </div>
+</section>
+
+    <section class="recomendaciones-hotel" id="alternativas">
+        <div class="contenedor">
+            <h2>Otras Opciones de Alojamiento </h2>
+            <p class="subtitulo-grande">Si prefieres buscar tu alojamiento por tu cuenta, ¡genial también! Aquí tienes algunas recomendaciones cercanas a la finca.</p>
+            <p class="nota-reserva">📝 Recuerda que si eliges esta opción, tendrás que gestionar tu reserva directamente con el hotel que prefieras.</p>
+            
+            <div class="lista-recomendaciones">
+                
+                <div class="item-hotel">
+                    <h3>Hotel Maya (3 estrellas)</h3>
+                    <p class="hotel-detalle">**Cerca de la playa y el centro.** Cerca del centro comercial Plaza Mar y a 1,5 km caminando de la Playa del Postiguet.</p>
+                    <p class="hotel-distancia">📍 Distancia: 3,6 km en coche de la finca</p>
+                </div>
+                
+                <div class="item-hotel">
+                    <h3>Hotel Albahía (3 estrellas)</h3>
+                    <p class="hotel-detalle">**Vistas al mar y ambiente tranquilo.** Frente al mar, con acceso directo a calas de Alicante. A 900 m caminando de la Playa de la Albufereta.</p>
+                    <p class="hotel-distancia">📍 Distancia: 3,8 km en coche de la finca</p>
+                </div>
+
+                <div class="item-hotel">
+                    <h3>Hotel Boutique Calas de Alicante (4 estrellas)</h3>
+                    <p class="hotel-detalle">**Estancia con encanto cerca del mar.** A 500 m caminando de la Playa Almadraba, en Cabo de Huertas, una zona tranquila.</p>
+                    <p class="hotel-distancia">📍 Distancia: 4,4 km en coche de la finca</p>
+                </div>
+
+                <div class="item-hotel">
+                    <h3>Hotel Torre San Juan (2 estrellas)</h3>
+                    <p class="hotel-detalle">**Entorno más tranquilo y rural.** Cerca de San Juan Pueblo, a 3 km de la Playa de San Juan.</p>
+                    <p class="hotel-distancia">📍 Distancia: 5,4 km en coche de la finca</p>
+                </div>
+
+                <div class="item-hotel">
+                    <h3>Hotel Port Alicante (4 estrellas)</h3>
+                    <p class="hotel-detalle">**Playa, comodidad y servicios.** Hotel moderno con piscina, a 900 m caminando de la Playa de San Juan.</p>
+                    <p class="hotel-distancia">📍 Distancia: 5,6 km en coche de la finca</p>
+                </div>
+
+                <div class="item-hotel hotel-economico">
+                    <h3>Hotel Castilla Alicante (3 estrellas) 💸</h3>
+                    <p class="hotel-detalle">**Opción más económica cerca de la playa.** A solo 200 m caminando de la Playa de San Juan, cerca de la zona con más ambiente.</p>
+                    <p class="hotel-distancia">📍 Distancia: 5,7 km en coche de la finca</p>
+                </div>
+                
+                <div class="item-hotel">
+                    <h3>Hotel Almirante (3 estrellas)</h3>
+                    <p class="hotel-detalle">**Disfrutar de la playa a tope.** Frente al mar, con piscina exterior y acceso directo a la Playa de San Juan.</p>
+                    <p class="hotel-distancia">📍 Distancia: 6,6 km en coche de la finca</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+<section class="regalos" id="regalo">
+    <div class="contenedor">
+        <h2>El mejor regalo es tu compañia, pero...</h2>
+        
+        <div class="caja-regalos">
+            <i class="material-icons icono-regalo" style="font-size: 88px; color: #D8C3A5; margin-bottom: 20px;">🎁</i>
+            
+            <p>Las donaciones a la causa y/o caridad podeis depositarlas en el siguiente nº de cuenta .</p>
+                                   
+            <div class="datos-cuenta">
+                <p><strong>Titulares:</strong> Alejandro Serrano y Elena Gallego</p>
+                <p><strong>Banco:</strong> Bankinter</p>
+                <p style="font-family: monospace; font-size: 1.2rem; margin-top: 10px; letter-spacing: 1px;">
+                    ES55 0128 7820 8001 0481 5082
+                </p>
+            </div>
+            
+            <p class="texto-peque" style="margin-top: 20px;">Concepto: Vuestro Nombre + Boda</p>
+        </div>
+    </div>
+</section>
+    <footer>
+        <p>Con amor, Alex y Elena © 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

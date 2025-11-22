@@ -1,0 +1,1210 @@
+/* RESET BÁSICO Y CORRECCIÓN DE DESPLAZAMIENTO */
+* { margin: 0; padding: 0; box-sizing: border-box; } 
+
+/* RESET BÁSICO Y CORRECCIÓN DE DESPLAZAMIENTO */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: var(--fuente-cuerpo); /* Aplicamos Kalam al cuerpo */
+    color: #4a4a4a; 
+    line-height: 1.6; 
+    background-color: #fcf8f3; 
+    overflow-x: hidden; 
+	font-size: 17px;
+}
+
+/* COLORES Y FUENTES GLOBALES */
+:root {
+	
+	--color-principal: #A0522D; 
+     --color-acento: #D8C3A5; 
+    --color-texto: #333;
+    
+    /* NUEVA FUENTE PARA TÍTULOS (Manuscrita/Elegante) */
+    --fuente-titulo: 'Dancing Script', cursive; 
+    
+    /* NUEVA FUENTE PARA CUERPO/TEXTO GENERAL (Divertida/Legible) */
+    --fuente-cuerpo: 'Kalam', cursive;
+    
+    --color-whatsapp: #25D366; 
+    --color-fondo-claro: #fffaf0; 
+    --ancho-contenido: 1200px; 
+}
+
+/* UTILIDADES GENERALES */
+section { padding: 80px 20px; text-align: center; position: relative; }
+.contenedor { max-width: 1000px; margin: 0 auto; position: relative; z-index: 10; } 
+h2 { font-size: 3.5rem; margin-bottom: 30px; color: var(--color-principal); font-family: var(--fuente-titulo); }
+
+
+/* ========================================================================= */
+/* --- ANIMACIONES DE ENTRADA (Se mantienen igual) --- */
+
+
+/* 5. Estilos del Título (H1) - Se mantienen estáticos */
+.hero h1 { 
+    font-family: var(--fuente-titulo); 
+    font-size: 6rem; 
+    margin-bottom: 10px; 
+    letter-spacing: 5px; 
+    text-shadow: 0 0 15px rgba(0,0,0,0.8), 0 4px 8px rgba(0,0,0,0.9); 
+}
+
+/* 6. Animación del H1 */
+/* El H1 tiene ahora la clase 'fade-in-delay-0-1' para que aparezca suavemente: */
+/* .fade-in-delay-0-1 { animation: fadeIn 0.6s ease-out 0.1s forwards; } */
+
+.lema, .hero .fecha, .hero .lugar, .boton-rsvp-hero, #carrusel-contenedor {
+    opacity: 0;
+}
+
+@keyframes slideUpFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-slide-up {
+    animation: slideUpFadeIn 4.8s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.fade-in-delay-0-1 { animation: fadeIn 0.6s ease-out 0.1s forwards; }
+.fade-in-delay-0-3 { animation: fadeIn 0.6s ease-out 0.3s forwards; }
+.fade-in-delay-0-4 { animation: fadeIn 0.6s ease-out 0.4s forwards; }
+
+@keyframes popIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    70% { opacity: 1; transform: scale(1.05); }
+    100% { opacity: 1; transform: scale(1); }
+}
+@keyframes pulse-slow {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+.pop-in-delay-0-5 { 
+    animation-name: popIn, pulse-slow;
+    animation-duration: 0.5s, 2.5s;
+    animation-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275), ease-in-out;
+    animation-delay: 0.7s, 1.7s; 
+    animation-fill-mode: forwards, both;
+    animation-iteration-count: 1, infinite;
+}
+.slide-in-left {
+    animation: slideUpFadeIn 0.8s ease-out 0.6s forwards; 
+}
+/* ========================================================================= */
+
+
+/* --- BARRA DE NAVEGACIÓN --- */
+#menu-principal {
+    position: fixed; 
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.98); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000; 
+    padding: 10px 0;
+}
+
+.contenedor-menu {
+    max-width: var(--ancho-contenido);
+    margin: 0 auto; 
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nombre-boda {
+    font-family: var(--fuente-titulo);
+    font-size: 2rem;
+    color: var(--color-principal);
+    text-decoration: none;
+    font-weight: bold;
+    margin-right: 15px; 
+    order: 1;
+}
+
+.control-musica {
+    background: var(--color-acento);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-right: 20px;
+    order: 2;
+}
+
+.control-musica:hover {
+    background-color: var(--color-principal);
+    transform: scale(1.05);
+}
+
+.control-musica i {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.contador-dias-nav {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-acento);
+    background-color: var(--color-fondo-claro);
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid var(--color-principal);
+    white-space: nowrap; 
+    margin-right: auto; 
+    order: 3;
+}
+
+.enlaces-menu a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 15px;
+    margin: 0 5px;
+    transition: color 0.3s, background-color 0.3s;
+    border-radius: 4px;
+}
+
+.enlaces-menu a:hover {
+    color: white;
+    background-color: var(--color-acento);
+}
+
+body { padding-top: 60px; } 
+
+/* ========================================================================= */
+/* --- PORTADA (HERO) - Arreglo del fondo y alineación --- */
+/* ========================================================================= */
+.hero {
+    position: relative; 
+    width: 100%; 
+    height: 90vh; 
+    min-height: 600px;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    color: white; 
+    overflow: hidden; 
+    
+    /* FIX 1: Usamos el archivo local que pides */
+    background-image: url('fondo-hero.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center 30%; 
+    background-attachment: fixed;
+    padding: 20px 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.45); 
+    z-index: 1;
+}
+
+/* Alineamos todo el contenido del hero a la DERECHA */
+.contenedor-hero-flex {
+    display: flex;
+    max-width: var(--ancho-contenido); 
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end; /* Alinea a la derecha */
+    padding: 0 20px;
+    position: relative;
+    z-index: 2; 
+}
+
+.columna-texto-portada {
+    /* Ocupa el 50% derecho del contenedor, dejando el 50% izquierdo libre */
+    flex: 0 0 50%; 
+    display: flex;
+    justify-content: flex-end; /* Alinea el contenido interno a la derecha */
+    height: 100%;
+    align-items: center;
+    text-align: right;
+    margin-left: auto; 
+}
+
+.contenido-hero {
+    padding: 0; 
+    max-width: 90%; 
+    border-radius: 0;
+}
+
+.lema {
+    font-family: var(--fuente-titulo); 
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+}
+
+.hero h1 { 
+    font-family: var(--fuente-titulo); 
+    font-size: 6rem; 
+    margin-bottom: 10px; 
+    letter-spacing: 5px; 
+    text-shadow: 0 0 15px rgba(0,0,0,0.8), 0 4px 8px rgba(0,0,0,0.9); 
+}
+.hero .fecha, .hero .lugar {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
+.hero .fecha { 
+    font-size: 1.5rem; 
+    margin-bottom: 5px; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+}
+.hero .lugar { 
+    font-size: 1.2rem; 
+    font-weight: 300; 
+    margin-bottom: 30px; 
+}
+
+.boton-rsvp-hero {
+    display: inline-block;
+    background-color: var(--color-principal); 
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 700;
+    padding: 15px 40px;
+    border-radius: 50px; 
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.3s;
+    opacity: 0; 
+}
+
+.boton-rsvp-hero:hover {
+    background-color: var(--color-acento);
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px var(--color-acento), 0 4px 20px rgba(0,0,0,0.4); 
+}
+
+.hero-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background-color: #fcf8f3; 
+    clip-path: ellipse(120% 100% at 50% 100%); 
+    z-index: 50; 
+}
+/* ========================================================================= */
+/* --- CONTADOR PRINCIPAL (CARRUSEL IZQUIERDA + CONTADOR DERECHA) --- */
+/* ========================================================================= */
+.seccion-contador { 
+    background-color: #fcf8f3; 
+    padding: 80px 20px; 
+    text-align: center;
+}
+
+.seccion-contador h2 { 
+    font-size: 3.5rem; /* Ajustado para no chocar con el título "Faltan..." */
+    margin-bottom: 30px; 
+    color: var(--color-principal); 
+    font-family: var(--fuente-titulo); 
+    line-height: 1;
+}
+
+/* FIX: Contenedor Principal: Define las dos columnas (Slider y Contador) */
+.contenedor-carrousel-contador {
+    display: flex;
+    max-width: 1100px; 
+    margin: 0 auto;
+    gap: 50px; 
+    align-items: center; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+}
+
+/* ------------------ COLUMNA IZQUIERDA: CARRUSEL ------------------ */
+.columna-carrusel-contenedor {
+    flex-basis: 650px; 
+    max-width: 650px; 
+    flex-grow: 1; 
+    flex-shrink: 1; 
+    order: 1; 
+    text-align: center;
+    margin: 0; 
+}
+
+#carrusel-contenedor {
+    width: 100%; 
+    padding-top: 100%; 
+    position: relative;
+    overflow: hidden;
+    border: 8px solid white; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 5px; 
+    opacity: 0; 
+}
+
+#carrusel-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2000%; 
+    height: 100%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carrusel-slide {
+    width: 5%; 
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+}
+
+/* ------------------ COLUMNA DERECHA: CONTADOR ------------------ */
+.columna-tiempo-contador {
+    flex-basis: 400px; 
+    max-width: 400px;
+    flex-grow: 1; 
+    flex-shrink: 1;
+    order: 2; 
+    text-align: left; 
+}
+
+/* FIX: El título "Faltan..." en la columna del contador */
+.columna-tiempo-contador h2 {
+    font-size: 5rem; 
+    margin-bottom: 50px; 
+    color: var(--color-principal); 
+    font-family: var(--fuente-titulo); 
+    line-height: 1;
+}
+
+.contador { 
+    display: flex; 
+    justify-content: flex-start; 
+    gap: 15px; /* MODIFICADO: Reducido el espacio entre elementos */
+    font-size: 0.9rem; /* MODIFICADO: Reducido el tamaño de la etiqueta base */
+    font-weight: bold; 
+    color: var(--color-acento); 
+    flex-wrap: nowrap; /* IMPORTANTE: Fuerza que los elementos se mantengan en una sola línea */
+}
+
+.caja-tiempo { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0; /* MODIFICADO: Eliminado margen vertical para compactar */
+}
+
+.caja-tiempo span { 
+    font-size: 2.5rem; /* MODIFICADO: Reducido el tamaño de los números */
+    line-height: 1.1; 
+    color: var(--color-principal); 
+    margin-bottom: 5px;
+}
+/* ========================================================================= */
+
+
+/* UBICACION + MAPA */
+.historia { background-color: var(--color-fondo-claro); }
+.contenedor-flex-ubicacion {
+    display: flex; align-items: center; justify-content: space-between; gap: 50px;
+    text-align: left;
+}
+.columna-texto { flex: 1; }
+.columna-texto h3 { color: var(--color-principal); font-size: 2rem; margin-bottom: 15px; }
+.columna-texto p { font-size: 1.1rem; margin-bottom: 20px; }
+.columna-mapa { flex: 0 0 400px; }
+
+/* --- ESTILOS DEL MAPA INTERACTIVO COMPACTO --- */
+.tarjeta-mapa-google-compacta {
+    background: white; 
+    padding: 20px; 
+    border: 2px dashed var(--color-acento);
+    text-align: center; 
+    border-radius: 10px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta-mapa-google-compacta h3 { 
+    color: var(--color-acento); 
+    margin-bottom: 5px; 
+}
+
+.tarjeta-mapa-google-compacta .nombre-ubicacion {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.contenedor-mapa-compacto {
+    width: 100%;
+    height: 250px; 
+    overflow: hidden;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.contenedor-mapa-compacto iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.boton-mapa {
+    display: block; 
+    margin-top: 10px; 
+    padding: 10px;
+    background: var(--color-principal); 
+    color: white;
+    text-decoration: none; 
+    font-weight: bold; 
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+.boton-mapa:hover { 
+    background-color: var(--color-acento); 
+}
+/* ------------------------------------------------------------------- */
+
+/* ========================================================================= */
+/* --- CRONOGRAMA (TIMING) --- */
+/* ========================================================================= */
+/* ========================================================================= */
+/* --- CRONOGRAMA (TIMING) - ESTILO TIMELINE --- */
+/* ========================================================================= */
+.cronograma { 
+    padding: 80px 20px; 
+    background-color: white; 
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4)), url('fondo-flor-repetir.png'); 
+    background-size: 300px auto; 
+    background-repeat: repeat; 
+    background-attachment: fixed;
+}
+
+.cronograma-contenido-caja { 
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo casi opaco para leer bien */
+    padding: 40px 20px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    max-width: 1000px; /* Hacemos la caja un poco más ancha */
+    margin: 0 auto; 
+    border: 2px solid var(--color-principal);
+}
+
+.cronograma h2 { font-size: 4.5rem; color: var(--color-principal); margin-bottom: 10px; }
+.subtitulo-grande { font-size: 1.3rem; font-weight: bold; color: #666; margin-bottom: 60px; }
+
+/* --- ESTRUCTURA DEL TIMELINE --- */
+.timeline {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+/* 1. LA LÍNEA CENTRAL (UNA SOLA IMAGEN ESTIRADA) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%; 
+    
+    /* Ancho de la línea */
+    width: 250px; 
+    margin-left: -125px; 
+    
+    /* Tu imagen */
+    background-image: url('linea.png');
+    
+    /* CAMBIO CLAVE: NO REPETIR */
+    background-repeat: no-repeat;
+    
+    /* CLAVE: Estirar la imagen para que ocupe todo el alto del contenedor */
+    background-size: 100% 100%; 
+    
+    /* Posición: Centrada arriba */
+    background-position: center top;
+    
+    z-index: 1;
+}
+
+/* Contenedor de cada evento */
+.timeline-item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%; /* Ocupa la mitad del ancho */
+    box-sizing: border-box;
+}
+
+/* LADO IZQUIERDO */
+.izquierdo {
+    left: 0;
+    text-align: right; /* Texto alineado a la línea */
+}
+
+/* LADO DERECHO */
+.derecho {
+    left: 50%;
+    text-align: left; /* Texto alineado a la línea */
+}
+
+/* 2. LOS ICONOS (MÁSCARA PARA TAPAR LA LÍNEA) */
+.timeline-icono {
+    position: absolute;
+    
+    /* TAMAÑO REDUCIDO (Un pelín más pequeños) */
+    width: 90px;  
+    height: 90px;
+    
+    top: 10px;
+    z-index: 10;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Ya no necesitamos el fondo 'parche' porque no tocan la línea */
+    background-color: transparent; 
+    border: none;
+    box-shadow: none; 
+}
+/* Iconos de la izquierda: Se quedan a la izquierda de la línea central */
+.izquierdo .timeline-icono {
+    right: 60px; /* Los separamos 60px del centro hacia la izquierda */
+    left: auto;
+}
+
+/* Iconos de la derecha: Se quedan a la derecha de la línea central */
+.derecho .timeline-icono {
+    left: 60px; /* Los separamos 60px del centro hacia la derecha */
+    right: auto;
+}
+/* Ajustamos el padding del texto para dejar hueco al icono que ahora está al lado */
+.izquierdo .timeline-contenido {
+    text-align: right; /* Alineamos el texto a la derecha (junto a la línea) */
+    padding-right: 180px; /* Damos más espacio para que el icono no choque con el texto */
+    padding-left: 20px;
+}
+
+.derecho .timeline-contenido {
+    text-align: left; /* Alineamos el texto a la izquierda (junto a la línea) */
+    padding-left: 180px; /* Damos más espacio para que el icono no choque con el texto */
+    padding-right: 20px;
+}
+
+/* Ajuste de la imagen */
+.timeline-icono img {
+    width: 100%; 
+    height: 100%;
+    object-fit: contain;
+}
+
+/* --- CONTENIDO DE TEXTO --- */
+.timeline-contenido {
+    padding: 10px 20px;
+    position: relative;
+    border-radius: 6px;
+}
+
+.timeline-contenido h3 {
+    font-family: var(--fuente-titulo); 
+    font-size: 2.2rem;
+    color: var(--color-principal);
+    margin-bottom: 5px;
+    
+    /* Espaciado entre letras */
+    letter-spacing: 0.20rem; 
+    
+    /* Espaciado entre líneas (si el texto se rompe en varias líneas) */
+    line-height: 1.9; /* Un valor bajo para que las líneas estén cerca */
+}
+
+
+.timeline-contenido p {
+    font-family: 'Montserrat', sans-serif; /* Fuente legible para la descripción */
+    font-size: 1.1rem;
+    margin: 0;
+    color: #555;
+}
+
+
+/* ========================================== */
+/* --- RESPONSIVE (MÓVIL) PARA TIMELINE --- */
+/* ========================================== */
+@media (max-width: 768px) {
+    
+    /* --- REGLAS GENERALES Y NAVEGACIÓN (ESENCIALES) --- */
+    
+    /* 1. La barra de navegación se hace de columna */
+    #menu-principal {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* 2. Los enlaces del menú se apilan */
+    .enlaces-menu {
+        flex-direction: row;
+        flex-wrap: wrap; /* Permite que los botones salten de línea */
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    /* 3. Estilo de los botones para que quepan bien */
+    .enlaces-menu a {
+        font-size: 0.75rem; 
+        padding: 6px 10px; 
+        margin: 2px;
+        background-color: #f5f5f5; 
+        border-radius: 15px; 
+        color: #333; 
+        white-space: nowrap; 
+    }
+
+    /* 4. Columna de Ubicación/Hoteles/Regalo */
+    .contenedor-flex-ubicacion { flex-direction: column; text-align: center; }
+    .columna-texto { flex: 1; width: 100%; margin-top: 30px; text-align: center; }
+    .columna-mapa { flex: 1; width: 100%; }
+    .contenedor-columnas { flex-direction: column; } /* Para el bloque de hoteles */
+
+
+    /* --- REGLAS DEL TIMELINE (CRONOGRAMA) --- */
+    
+    /* 5. AJUSTE DEL CONTENEDOR PRINCIPAL */
+    .cronograma-contenido-caja {
+        /* Permite que los elementos floten fuera si es necesario */
+        overflow: hidden; 
+    }
+    
+    /* 6. REPOSICIONAMIENTO Y GROSOR DE LA LÍNEA */
+    .timeline::after {
+        left: 20px; /* Posición de la línea a la izquierda (línea vertical) */
+        width: 3px; /* Línea muy fina para móvil */
+        margin-left: 0; 
+        background-repeat: repeat-y; 
+        background-size: 100% auto; /* Repetición normal */
+    }
+    
+    /* 7. ESTRUCTURA DE ITEMS (UNA SOLA COLUMNA) */
+    .timeline-item {
+        width: 100%; /* Ocupa todo el ancho */
+        
+        /* Reservamos espacio para la línea (20px) y el icono (50px + márgenes) */
+        padding: 0 10px 40px 90px; 
+        
+        /* CLAVE: Reseteamos las posiciones absolutas de escritorio */
+        left: 0;
+        right: auto;
+    }
+
+    /* 8. RESET DE ALINEACIONES DE TEXTO */
+    .izquierdo, .derecho {
+        text-align: left; /* Todo el texto debe ir a la izquierda */
+    }
+
+    /* 9. REPOSICIONAMIENTO DE ICONOS (A la izquierda del texto) */
+    .timeline-icono {
+        width: 50px; /* Tamaño más pequeño para móvil */
+        height: 50px;
+        position: absolute; /* Sigue flotando */
+        
+        /* Lo colocamos justo al lado de la línea */
+        left: 55px; /* 55px = 20px (posición de línea) + 35px (gap/centro de icono) */
+        right: auto;
+        
+        top: 0;
+        z-index: 2;
+        
+        background-color: transparent; /* No máscara */
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* 10. RESET DE PADDING DEL CONTENIDO */
+    .izquierdo .timeline-contenido, 
+    .derecho .timeline-contenido {
+        padding: 0;
+        padding-right: 0; 
+        padding-left: 0; 
+    }
+    
+    /* 11. AJUSTES DE TIPOGRAFÍA */
+    .timeline-contenido h3 {
+        font-size: 1.5rem; /* Títulos más pequeños */
+    }
+    .timeline-contenido p {
+        font-size: 1rem; /* Párrafos más pequeños */
+    }
+}
+
+
+
+
+
+/* --- RSVP (CONFIRMACION) --- */
+.rsvp { 
+       
+    /* SUGERENCIA: Asegúrate de tener estas propiedades para controlar la imagen: */
+    padding: 80px 20px; 
+    background-color: white; 
+    /* FIX 2: Se usa el archivo local 'fondo-flor-repetir.png' */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4)), url('fondo-flor-repetir.png'); 
+    /* FIX 3: Tamaño pequeño para forzar la repetición */
+    background-size: 300px auto; 
+    /* FIX 4: La imagen debe repetirse */
+    background-repeat: repeat; 
+    background-attachment: fixed;
+}
+
+
+/* ESTO ES LO QUE NECESITAS CAMBIAR PARA EL TÍTULO */
+.rsvp h2 { 
+    color: #333; /* Color gris casi negro */
+}
+
+.lateral-izq {
+    left: 10px;
+    transform: translateY(-50%) scaleX(1);
+}
+
+.lateral-der {
+    right: 90px;
+    transform: translateY(-50%) scaleX(-1);
+}
+
+
+.caja-rsvp { 
+    position: relative; z-index: 10; 
+    /* Fondo más sólido: 0.7 es 70% opaco */
+    background: rgba(255, 255, 255, 0.7); 
+    padding: 40px; border-radius: 15px;
+    /* Mayor desenfoque del fondo detrás de la caja */
+    backdrop-filter: blur(20px); 
+    /* Borde más sólido y visible */
+    border: 2px solid var(--color-principal); /*Borde para el recuadro*/
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /*sombrita */
+	/* CAMBIO CLAVE: Cambia el color del texto a gris casi negro */
+    color: #333;
+} 
+
+/* ESTA REGLA VA APARTE Y SIN ANIDAR */
+.columna-confirmacion h3, .columna-alojamiento h3 {
+    /* color: white; <-- Valor original, cámbialo por: */
+    color: #555; /* Un gris oscuro */
+}
+.texto-destacado { font-size: 1.5rem; margin-bottom: 40px; }
+
+.contenedor-columnas {
+    display: flex;
+    gap: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.columna-confirmacion, .columna-alojamiento {
+    flex: 1; 
+    padding: 30px 20px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.columna-confirmacion h3, .columna-alojamiento h3 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.columna-alojamiento p {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.texto-simple {
+    font-weight: 300;
+}
+
+.subtexto-confirmacion {
+    font-weight: 300;
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+
+.botones-whatsapp {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.boton-wa {
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    line-height: 1.2; 
+    background-color: var(--color-whatsapp); 
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 15px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.boton-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.icono-wa {
+    width: 32px; 
+    height: 32px; 
+    margin-right: 15px; 
+    vertical-align: middle; 
+    border: none; 
+}
+
+
+.boton-hotel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--color-acento);
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 15px 30px;
+    border-radius: 5px;
+    text-decoration: none;
+    border: 2px solid white;
+    transition: background-color 0.2s;
+}
+
+.boton-hotel:hover {
+    background-color: var(--color-principal);
+}
+/* --- ESTILOS PARA SECCIÓN INTOLERANCIAS --- */
+.seccion-intolerancias {
+    background-color: rgba(255, 255, 255, 0.3); /* Un poco más claro para destacar */
+    border: 1px dashed var(--color-principal); /* Borde punteado elegante */
+    border-radius: 8px;
+    padding: 30px 20px;
+    margin-top: 30px; /* Separación de las columnas de arriba */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.seccion-intolerancias h3 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 15px;
+    font-family: 'letra', sans-serif;
+}
+
+.seccion-intolerancias p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.boton-intolerancias {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #555; /* Un gris oscuro para diferenciar de los otros botones */
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.boton-intolerancias:hover {
+    background-color: var(--color-principal);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+/* Ajuste para móvil para que no quede pegado */
+@media (max-width: 850px) {
+    
+    /* ... (aquí está el resto de tu código móvil existente) ... */
+
+    /* --- ARREGLO DEL CARRUSEL EN MÓVIL --- */
+    
+    /* 1. Aseguramos que el contenedor padre ocupe espacio y centre el contenido */
+    .columna-carrusel-contenedor { 
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 30px; /* Espacio con el contador */
+    }
+
+    /* 2. Forzamos la visibilidad del carrusel ignorando la animación */
+    #carrusel-contenedor {
+        opacity: 1 !important;      /* Forzamos que sea visible */
+        animation: none !important; /* Desactivamos la animación de entrada para evitar fallos */
+        width: 100%;                /* Que ocupe el ancho disponible */
+        max-width: 300px;           /* Tamaño ideal para móvil */
+        margin: 0 auto;             /* Centrado */
+        transform: none !important; /* Evitamos desplazamientos extraños */
+    }
+    
+    /* 3. Ajuste de altura para móvil (opcional, si ves que se corta) */
+    #carrusel-slider {
+        height: 100%;
+    }
+	/* --- ARREGLO DE LA PORTADA EN MÓVIL --- */
+    
+    .hero {
+        /* 1. Solución foto gris: Quitamos el 'fixed' que falla en móviles */
+        background-attachment: scroll !important; 
+        background-position: center center !important; /* Centramos la imagen */
+        background-size: cover !important; /* Asegura que cubra todo sin deformarse */
+        
+        /* Ajuste de altura para que se vea bien en el móvil */
+        height: 100vh; 
+        min-height: 500px;
+        align-items: center; /* Centrado vertical del contenido */
+    }
+
+    /* 2. Solución Título Gigante */
+    .hero h1 {
+        font-size: 3rem !important; /* Reducimos mucho el tamaño (antes era gigante) */
+        line-height: 1.1 !important; /* Juntamos un poco las líneas */
+        margin-bottom: 15px;
+        letter-spacing: 2px !important; /* Menos espacio entre letras para que quepa */
+        width: 100%;
+        word-wrap: break-word; /* Evita que se corte si es muy largo */
+    }
+    
+    /* Ajuste extra para el contenedor del texto en portada móvil */
+    .columna-texto-portada {
+        padding: 0 15px; /* Un poco de margen a los lados */
+    }
+
+    /* --- ARREGLO DE LA PORTADA EN MÓVIL --- */
+    
+    .hero {
+        background-attachment: scroll !important; 
+        
+        /* 1. ESTA ES LA LÍNEA CLAVE QUE DEBES AÑADIR/MODIFICAR */
+        /* Movemos el centro de la imagen un 10% a la izquierda. */
+        /* Si necesitas más, usa 5% o 0% 90% (arriba y abajo) o 40% 50%. */
+        background-position: 65% center !important; 
+        
+        background-size: cover !important; 
+        
+        /* Ajuste de altura para que se vea bien en el móvil */
+        height: 100vh; 
+        min-height: 500px;
+        align-items: center; 
+    }
+
+}
+/* --- SECCIÓN RECOMENDACIONES DE HOTELES --- */
+.recomendaciones-hotel {
+    background-color: white;
+    padding-top: 40px; 
+}
+
+.recomendaciones-hotel h2 {
+    color: var(--color-principal);
+}
+
+.nota-reserva {
+    color: var(--color-texto);
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.lista-recomendaciones {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.item-hotel {
+    background-color: var(--color-fondo-claro);
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    width: 100%;
+    max-width: 300px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.item-hotel:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+.item-hotel h3 {
+    font-size: 1.4rem;
+    color: var(--color-acento);
+    margin-bottom: 10px;
+    font-family: 'letra', sans-serif;
+}
+
+.hotel-detalle {
+    font-size: 0.95rem;
+    color: #666;
+    margin-bottom: 10px;
+    min-height: 40px; 
+}
+
+.hotel-distancia {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--color-principal);
+}
+
+.hotel-economico {
+    border: 2px solid var(--color-whatsapp);
+}
+.hotel-economico h3 {
+    color: var(--color-whatsapp); 
+}
+
+/* --- SECCIÓN REGALOS (No en HTML, pero en CSS original) --- */
+.regalos {
+    background-color: var(--color-fondo-claro);
+    padding: 60px 20px;
+}
+
+.caja-regalos {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 30px;
+    border: 2px solid var(--color-acento);
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.caja-regalos p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.datos-cuenta {
+    background-color: #f5f5f5;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 5px solid var(--color-principal);
+    margin-bottom: 20px;
+}
+
+.datos-cuenta strong {
+    color: var(--color-principal);
+}
+
+.icono-regalo {
+    margin-top: 20px;
+}
+
+
+/* FOOTER */
+footer { background-color: #333; color: white; text-align: center; padding: 20px; position: relative; z-index: 20; }
+
+
+/* --- RESPONSIVE (MÓVIL) --- */
+/* --- MENÚ EN MÓVIL (SOLO ENLACES) --- */
+    
+    /* 1. Ocultamos lo que NO quieres ver */
+    .nombre-boda, 
+    .control-musica, 
+    .contador-dias-nav {
+        display: none !important;
+    }
+
+    /* 2. Ajustamos el contenedor principal */
+    .contenedor-menu {
+        justify-content: center; /* Centramos el contenido */
+        padding: 5px;
+    }
+
+    /* 3. Mostramos los enlaces y los adaptamos */
+    .enlaces-menu {
+        display: flex !important;   /* ¡Importante! Esto los hace visibles */
+        flex-wrap: wrap;            /* Permite que bajen de línea si no caben */
+        justify-content: center;    /* Centrados en la pantalla */
+        gap: 5px;                   /* Espacio pequeño entre botones */
+        width: 100%;
+    }
+
+    /* 4. Estilo de los botones para que quepan bien en pantalla pequeña */
+    .enlaces-menu a {
+        font-size: 0.75rem;         /* Letra más pequeña (aprox 12px) */
+        padding: 6px 10px;          /* Botones más compactos */
+        margin: 2px;
+        background-color: #f5f5f5;  /* Un fondo suave para que parezcan botones táctiles */
+        border-radius: 15px;        /* Bordes redondeados */
+        color: #333;                /* Color del texto */
+        white-space: nowrap;        /* Evita que el texto de un botón se rompa */
+    }
+
+    /* Color al tocar el enlace en el móvil */
+    .enlaces-menu a:active, 
+    .enlaces-menu a:focus {
+        background-color: var(--color-acento);
+        color: white;
+    }
+
+    /* Ubicación/Mapa */
+    .contenedor-flex-ubicacion { flex-direction: column; text-align: center; }
+    .columna-texto { flex: 1; width: 100%; margin-top: 30px; text-align: center; }
+    .columna-mapa { flex: 1; width: 100%; }
+    
+    .contenedor-columnas { flex-direction: column; }
+    .cronograma h2 { font-size: 3rem; }
+}
+/* AJUSTE EXTRA PARA REGALOS */
+.datos-cuenta {
+    text-align: center;
+    background-color: #fdfbf7; /* Un crema muy sutil */
+    border: 1px solid #e0e0e0;
+}
+
+/* Hace que el número de cuenta resalte más al pasar el ratón (efecto útil) */
+.datos-cuenta:hover {
+    border-color: var(--color-principal);
+    background-color: white;
+    transition: all 0.3s ease;
+}

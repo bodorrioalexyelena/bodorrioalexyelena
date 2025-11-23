@@ -424,7 +424,7 @@ body { padding-top: 60px; }
 
 /* FIX: El título "Faltan..." en la columna del contador */
 .columna-tiempo-contador h2 {
-    font-size: 5rem; 
+    font-size: 4rem; 
     margin-bottom: 50px; 
     color: var(--color-principal); 
     font-family: var(--fuente-titulo); 
@@ -1178,4 +1178,5 @@ footer { background-color: #333; color: white; text-align: center; padding: 20px
     transition: all 0.3s ease;
 
 }
+
 

@@ -886,12 +886,24 @@ body { padding-top: 60px; }
 
 /* Ajuste para móvil para que no quede pegado */
 @media (max-width: 850px) {
+    
+    /* --- FIX: TÍTULOS DE SECCIÓN (CONFIRMACIÓN, etc.) --- */
+    h2 {
+        /* REDUCIMOS EL TAMAÑO (Ejemplo: de 4.5rem a 2.5rem) */
+        font-size: 2.5rem; 
+        line-height: 1.1;
+        /* Aseguramos que si hay una palabra larguísima, se rompa */
+        word-wrap: break-word; 
+        word-break: break-word;
+    }
+    
+    /* Reglas de confirmación y formulario */
     .caja-confirmacion, .contenedor-confirmacion { 
         /* CLAVE 1: Asegura que la caja no tiene más del 100% del ancho */
         max-width: 100%;
         
         /* CLAVE 2: Forzar que las palabras largas (URLs, emails, etc.) se rompan */
-        word-wrap: break-word; 
+        word-wrap: break-word;  
         word-break: break-word; 
 
         /* CLAVE 3: Reducir padding horizontal si es muy grande */
@@ -936,23 +948,26 @@ body { padding-top: 60px; }
     #carrusel-slider {
         height: 100%;
     }
-	/* --- ARREGLO DE LA PORTADA EN MÓVIL --- */
     
+    /* --- ARREGLO DE LA PORTADA EN MÓVIL --- */
     .hero {
-        /* 1. Solución foto gris: Quitamos el 'fixed' que falla en móviles */
+        /* Solución foto gris: Quitamos el 'fixed' que falla en móviles */
         background-attachment: scroll !important; 
-        background-position: center center !important; /* Centramos la imagen */
-        background-size: cover !important; /* Asegura que cubra todo sin deformarse */
+        
+        /* Posición para la foto principal */
+        background-position: 65% center !important; 
+        
+        background-size: cover !important; 
         
         /* Ajuste de altura para que se vea bien en el móvil */
         height: 100vh; 
         min-height: 500px;
-        align-items: center; /* Centrado vertical del contenido */
+        align-items: center; 
     }
 
-    /* 2. Solución Título Gigante */
+    /* Solución Título Gigante en la PORTADA */
     .hero h1 {
-        font-size: 3rem !important; /* Reducimos mucho el tamaño (antes era gigante) */
+        font-size: 3rem !important; /* Reducimos mucho el tamaño */
         line-height: 1.1 !important; /* Juntamos un poco las líneas */
         margin-bottom: 15px;
         letter-spacing: 2px !important; /* Menos espacio entre letras para que quepa */
@@ -963,24 +978,6 @@ body { padding-top: 60px; }
     /* Ajuste extra para el contenedor del texto en portada móvil */
     .columna-texto-portada {
         padding: 0 15px; /* Un poco de margen a los lados */
-    }
-
-    /* --- ARREGLO DE LA PORTADA EN MÓVIL --- */
-    
-    .hero {
-        background-attachment: scroll !important; 
-        
-        /* 1. ESTA ES LA LÍNEA CLAVE QUE DEBES AÑADIR/MODIFICAR */
-        /* Movemos el centro de la imagen un 10% a la izquierda. */
-        /* Si necesitas más, usa 5% o 0% 90% (arriba y abajo) o 40% 50%. */
-        background-position: 65% center !important; 
-        
-        background-size: cover !important; 
-        
-        /* Ajuste de altura para que se vea bien en el móvil */
-        height: 100vh; 
-        min-height: 500px;
-        align-items: center; 
     }
 
 }

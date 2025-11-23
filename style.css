@@ -886,10 +886,33 @@ body { padding-top: 60px; }
 
 /* Ajuste para móvil para que no quede pegado */
 @media (max-width: 850px) {
-    
-    /* ... (aquí está el resto de tu código móvil existente) ... */
+    .caja-confirmacion, .contenedor-confirmacion { 
+        /* CLAVE 1: Asegura que la caja no tiene más del 100% del ancho */
+        max-width: 100%;
+        
+        /* CLAVE 2: Forzar que las palabras largas (URLs, emails, etc.) se rompan */
+        word-wrap: break-word; 
+        word-break: break-word; 
 
-    /* --- ARREGLO DEL CARRUSEL EN MÓVIL --- */
+        /* CLAVE 3: Reducir padding horizontal si es muy grande */
+        padding-left: 10px;
+        padding-right: 10px;
+        
+        /* Asegura que no hay márgenes negativos que causen desbordamiento */
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    /* Asegurar que los campos del formulario usan el 100% del ancho */
+    /* (Añade esto si tu confirmación es un formulario) */
+    .caja-confirmacion input[type="text"],
+    .caja-confirmacion input[type="email"],
+    .caja-confirmacion textarea {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box; /* Crucial: incluye padding y borde dentro del 100% */
+    }
+
     
     /* 1. Aseguramos que el contenedor padre ocupe espacio y centre el contenido */
     .columna-carrusel-contenedor { 

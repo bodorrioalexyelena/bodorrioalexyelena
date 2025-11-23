@@ -487,11 +487,9 @@ body { padding-top: 60px; }
 /* ------------------------------------------------------------------- */
 
 /* ========================================================================= */
-/* --- CRONOGRAMA (TIMING) --- */
+/* --- CRONOGRAMA (TIMING) - VERSIÓN IMAGEN CANVA --- */
 /* ========================================================================= */
-/* ========================================================================= */
-/* --- CRONOGRAMA (TIMING) - ESTILO TIMELINE --- */
-/* ========================================================================= */
+
 .cronograma { 
     padding: 80px 20px; 
     background-color: white; 
@@ -502,152 +500,41 @@ body { padding-top: 60px; }
 }
 
 .cronograma-contenido-caja { 
-    background-color: rgba(255, 255, 255, 0.95); /* Fondo casi opaco para leer bien */
+    background-color: rgba(255, 255, 255, 0.95); 
     padding: 40px 20px;
     border-radius: 10px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    max-width: 1000px; /* Hacemos la caja un poco más ancha */
+    max-width: 1000px; /* Ancho máximo de la caja */
     margin: 0 auto; 
     border: 2px solid var(--color-principal);
+    text-align: center; /* Centra todo el contenido (título e imagen) */
 }
 
-.cronograma h2 { font-size: 4.5rem; color: var(--color-principal); margin-bottom: 10px; }
-.subtitulo-grande { font-size: 1.3rem; font-weight: bold; color: #666; margin-bottom: 60px; }
-
-/* --- ESTRUCTURA DEL TIMELINE --- */
-.timeline {
-    position: relative;
-    max-width: 100%;
-    margin: 0 auto;
+.cronograma h2 { 
+    font-family: var(--fuente-titulo);
+    font-size: 4.5rem; 
+    color: var(--color-principal); 
+    margin-bottom: 10px;
 }
 
+.subtitulo-grande { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: #666; 
+    margin-bottom: 40px; 
+}
 
-/* 1. LA LÍNEA CENTRAL (UNA SOLA IMAGEN ESTIRADA) */
-.timeline::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%; 
+/* --- ESTILO PARA LA IMAGEN (RESPONSIVE) --- */
+.imagen-timing {
+    /* Esto es lo que hace la magia en el móvil: */
+    max-width: 100%;  /* La imagen nunca será más ancha que la pantalla */
+    height: auto;     /* Mantiene la proporción para no deformarse */
     
-    /* Ancho de la línea */
-    width: 250px; 
-    margin-left: -125px; 
-    
-    /* Tu imagen */
-    background-image: url('linea.png');
-    
-    /* CAMBIO CLAVE: NO REPETIR */
-    background-repeat: no-repeat;
-    
-    /* CLAVE: Estirar la imagen para que ocupe todo el alto del contenedor */
-    background-size: 100% 100%; 
-    
-    /* Posición: Centrada arriba */
-    background-position: center top;
-    
-    z-index: 1;
+    display: block;   /* Comportamiento de bloque */
+    margin: 0 auto;   /* Centrado horizontal */
+    border-radius: 8px; /* Opcional: bordes un poco redondeados en la imagen */
 }
 
-/* Contenedor de cada evento */
-.timeline-item {
-    padding: 10px 40px;
-    position: relative;
-    background-color: inherit;
-    width: 50%; /* Ocupa la mitad del ancho */
-    box-sizing: border-box;
-}
-
-/* LADO IZQUIERDO */
-.izquierdo {
-    left: 0;
-    text-align: right; /* Texto alineado a la línea */
-}
-
-/* LADO DERECHO */
-.derecho {
-    left: 50%;
-    text-align: left; /* Texto alineado a la línea */
-}
-
-/* 2. LOS ICONOS (MÁSCARA PARA TAPAR LA LÍNEA) */
-.timeline-icono {
-    position: absolute;
-    
-    /* TAMAÑO REDUCIDO (Un pelín más pequeños) */
-    width: 90px;  
-    height: 90px;
-    
-    top: 10px;
-    z-index: 10;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    
-    /* Ya no necesitamos el fondo 'parche' porque no tocan la línea */
-    background-color: transparent; 
-    border: none;
-    box-shadow: none; 
-}
-/* Iconos de la izquierda: Se quedan a la izquierda de la línea central */
-.izquierdo .timeline-icono {
-    right: 60px; /* Los separamos 60px del centro hacia la izquierda */
-    left: auto;
-}
-
-/* Iconos de la derecha: Se quedan a la derecha de la línea central */
-.derecho .timeline-icono {
-    left: 60px; /* Los separamos 60px del centro hacia la derecha */
-    right: auto;
-}
-/* Ajustamos el padding del texto para dejar hueco al icono que ahora está al lado */
-.izquierdo .timeline-contenido {
-    text-align: right; /* Alineamos el texto a la derecha (junto a la línea) */
-    padding-right: 180px; /* Damos más espacio para que el icono no choque con el texto */
-    padding-left: 20px;
-}
-
-.derecho .timeline-contenido {
-    text-align: left; /* Alineamos el texto a la izquierda (junto a la línea) */
-    padding-left: 180px; /* Damos más espacio para que el icono no choque con el texto */
-    padding-right: 20px;
-}
-
-/* Ajuste de la imagen */
-.timeline-icono img {
-    width: 100%; 
-    height: 100%;
-    object-fit: contain;
-}
-
-/* --- CONTENIDO DE TEXTO --- */
-.timeline-contenido {
-    padding: 10px 20px;
-    position: relative;
-    border-radius: 6px;
-}
-
-.timeline-contenido h3 {
-    font-family: var(--fuente-titulo); 
-    font-size: 2.2rem;
-    color: var(--color-principal);
-    margin-bottom: 5px;
-    
-    /* Espaciado entre letras */
-    letter-spacing: 0.20rem; 
-    
-    /* Espaciado entre líneas (si el texto se rompe en varias líneas) */
-    line-height: 1.9; /* Un valor bajo para que las líneas estén cerca */
-}
-
-
-.timeline-contenido p {
-    font-family: 'Montserrat', sans-serif; /* Fuente legible para la descripción */
-    font-size: 1.1rem;
-    margin: 0;
-    color: #555;
-}
 
 
 /* ========================================== */
@@ -1207,6 +1094,4 @@ footer { background-color: #333; color: white; text-align: center; padding: 20px
     border-color: var(--color-principal);
     background-color: white;
     transition: all 0.3s ease;
-
 }
-

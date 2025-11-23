@@ -199,7 +199,7 @@ body { padding-top: 60px; }
     overflow: hidden; 
     
     /* FIX 1: Usamos el archivo local que pides */
-    background-image: url('bodorrioalexyelena/fondo-hero.jpg'); 
+    background-image: url('fondo-hero.jpg'); 
     background-size: cover; 
     background-repeat: no-repeat; 
     background-position: center 30%; 
@@ -1209,3 +1209,4 @@ footer { background-color: #333; color: white; text-align: center; padding: 20px
     transition: all 0.3s ease;
 
 }
+

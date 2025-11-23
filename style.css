@@ -1,29 +1,55 @@
 /* RESET BÁSICO Y CORRECCIÓN DE DESPLAZAMIENTO */
 * { margin: 0; padding: 0; box-sizing: border-box; } 
+/* 1. CARGAR FUENTE PARA EL CUERPO (TEXTO GENERAL) */
+@font-face {
+    font-family: 'Fuentecuerpo'; /* Nombre definido */
+    src: url('fuente/fuentecuerpo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 
-/* RESET BÁSICO Y CORRECCIÓN DE DESPLAZAMIENTO */
-* { margin: 0; padding: 0; box-sizing: border-box; }
+/* 2. CARGAR FUENTE PARA LOS TÍTULOS */
+@font-face {
+    font-family: 'Fuentetitulo'; /* Nombre definido */
+    src: url('fuente/fuentetitulo.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* 3. AJUSTES DEL BODY */
 body { 
-    font-family: var(--fuente-cuerpo); /* Aplicamos Kalam al cuerpo */
+    font-family: var(--fuente-cuerpo); 
     color: #4a4a4a; 
     line-height: 1.6; 
     background-color: #fcf8f3; 
     overflow-x: hidden; 
-	font-size: 17px;
+    font-size: 17px;
+
+    /* Correcciones de apariencia */
+    font-weight: 400 !important; 
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
-/* COLORES Y FUENTES GLOBALES */
+p, li, span {
+    font-weight: inherit;
+    -webkit-font-smoothing: inherit;
+}
+
+/* 4. VARIABLES GLOBALES (AQUÍ ESTABA EL ERROR) */
 :root {
-	
-	--color-principal: #A0522D; 
-     --color-acento: #D8C3A5; 
+    
+    --color-principal: #A0522D; 
+    --color-acento: #D8C3A5; 
     --color-texto: #333;
     
-    /* NUEVA FUENTE PARA TÍTULOS (Manuscrita/Elegante) */
-    --fuente-titulo: 'Dancing Script', cursive; 
+    /* CORREGIDO: Usamos el nombre 'Fuentetitulo' que definiste arriba */
+    --fuente-titulo: 'Fuentetitulo', cursive; 
     
-    /* NUEVA FUENTE PARA CUERPO/TEXTO GENERAL (Divertida/Legible) */
-    --fuente-cuerpo: 'Kalam', cursive;
+    /* CORREGIDO: Usamos el nombre 'Fuentecuerpo' que definiste arriba */
+    --fuente-cuerpo: 'Fuentecuerpo', sans-serif; 
     
     --color-whatsapp: #25D366; 
     --color-fondo-claro: #fffaf0; 
@@ -316,9 +342,16 @@ body { padding-top: 60px; }
 /* --- CONTADOR PRINCIPAL (CARRUSEL IZQUIERDA + CONTADOR DERECHA) --- */
 /* ========================================================================= */
 .seccion-contador { 
-    background-color: #fcf8f3; 
     padding: 80px 20px; 
     text-align: center;
+
+    /* --- FONDO NUEVO --- */
+    /* Capa blanca al 60% (0.6) sobre la imagen para leer el texto */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('fondo.png');
+    background-size: cover;        /* Cubre todo el ancho/alto */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;  /* Efecto Parallax elegante */
 }
 
 .seccion-contador h2 { 
@@ -425,7 +458,14 @@ body { padding-top: 60px; }
 
 
 /* UBICACION + MAPA */
-.historia { background-color: var(--color-fondo-claro); }
+.historia { 
+    /* --- FONDO NUEVO --- */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
 .contenedor-flex-ubicacion {
     display: flex; align-items: center; justify-content: space-between; gap: 50px;
     text-align: left;
@@ -671,7 +711,7 @@ body { padding-top: 60px; }
 
 /* ESTO ES LO QUE NECESITAS CAMBIAR PARA EL TÍTULO */
 .rsvp h2 { 
-    color: #333; /* Color gris casi negro */
+    color: #A0522D; /* Color marron oscuro */
 }
 
 .lateral-izq {
@@ -722,7 +762,7 @@ body { padding-top: 60px; }
 
 .columna-confirmacion h3, .columna-alojamiento h3 {
     font-size: 1.8rem;
-    color: #555;
+    color: #A0522D; /*Cambio color texto Alojamiento*/
     margin-bottom: 15px;
 }
 
@@ -810,9 +850,9 @@ body { padding-top: 60px; }
 
 .seccion-intolerancias h3 {
     font-size: 1.8rem;
-    color: #555;
+    color: #A0522D;
     margin-bottom: 15px;
-    font-family: 'letra', sans-serif;
+    font-family: var(--fuente-titulo);
 }
 
 .seccion-intolerancias p {
@@ -923,8 +963,15 @@ body { padding-top: 60px; }
 }
 /* --- SECCIÓN RECOMENDACIONES DE HOTELES --- */
 .recomendaciones-hotel {
-    background-color: white;
-    padding-top: 40px; 
+    padding-top: 40px;
+    padding-bottom: 40px; /* Añadimos un poco abajo para que respire */
+
+    /* --- FONDO NUEVO --- */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .recomendaciones-hotel h2 {
@@ -991,8 +1038,14 @@ body { padding-top: 60px; }
 
 /* --- SECCIÓN REGALOS (No en HTML, pero en CSS original) --- */
 .regalos {
-    background-color: var(--color-fondo-claro);
     padding: 60px 20px;
+
+    /* --- FONDO NUEVO --- */
+    background-image: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6)), url('fondo.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 
 .caja-regalos {
@@ -1022,8 +1075,17 @@ body { padding-top: 60px; }
     color: var(--color-principal);
 }
 
-.icono-regalo {
-    margin-top: 20px;
+.icono-regalo-imagen {
+    width: 150px; /* Tamaño del icono. Ajusta si quieres que sea más grande o más pequeño */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 20px; /* Espacio debajo de la imagen */
+    display: block; /* Para que margin: auto funcione y se centre */
+    margin-left: auto;
+    margin-right: auto;
+    /* Si tu imagen tiene un fondo transparente, no necesitas más. */
+    /* Si quisieras añadir un borde o sombra, lo harías aquí: */
+    /* border: 2px solid var(--color-principal); */
+    /* border-radius: 50%; */
 }
 
 
